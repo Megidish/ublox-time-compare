@@ -35,7 +35,7 @@ x_boundary = np.linspace(np.min(X), np.max(X), 100).reshape(-1, 1)
 y_boundary = knn.predict(x_boundary)
 
 plt.scatter(X_train, y_train, color='blue', label='Training Data')
-plt.scatter(X_test, y_test, color='green', label='Test Data')
+plt.scatter(X_test, y_test, color='black', label='Test Data')
 plt.plot(x_boundary, y_boundary, color='red', label='Decision Boundary')
 
 plt.xlabel('Drift')
