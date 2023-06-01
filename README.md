@@ -7,7 +7,12 @@ install packages listed in a requirements.txt file using pip, you can use the fo
 pip install -r requirements.txt
 ```
 
-# How to check which port you are conncecting to U-blox for MAC users
-enter this command: cd /dev && ls | grep tty.usbmodem
-now enter the output inside ublox_request-function.py. 
-serial_port = serial.Serial('/dev/enter here output',baudrate, timeout =1)
+# How to check which USB port are conncected to U-blox 
+For mac users:
+```bash
+d /dev && ls | grep tty.usbmodem
+```
+now go inside ublox_request_function.py and change u_blox_path to the output from eaarlier 
+```python
+u_blox_path = '/dev/the new path'
+```
