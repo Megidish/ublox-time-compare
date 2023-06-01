@@ -9,7 +9,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from ublox_request import get_data_from_UBLOX
+from ublox_request import get_data_from_UBLOX,get_sat_number_from_UBLOX
 
 
 year_month_day = datetime.now().strftime("%Y-%m-%d")
@@ -35,7 +35,6 @@ def parse_stats_data(stats_data):
         formatted_date = date_obj.strftime("%Y-%m-%d")
     return (formatted_date)
 
-    
 
 with webdriver.Chrome() as driver:
     try:
@@ -53,13 +52,14 @@ with webdriver.Chrome() as driver:
             current_time = datetime.now()
             web_timestamp=parsing_clock_element(clock_element)
             date_from_stats = parse_stats_data(clock_stats_element.text)
+            ublox_data = get_data_from_UBLOX()
             # clock_stats = scrape_clock_stats(clock_stats_element)
             # stats_output = parse_stats_data(clock_stats)
             # print(clock_stats_element.text)
-            write_to_csv("test.csv" ,current_time,get_data_from_UBLOX(), web_timestamp)
-            print(date_from_stats)
-            # Wait for 1 second
-            time.sleep(1)
+            print(ublox_data)
+            write_to_csv("test.csv" ,current_time,ublox_data , web_timestamp)
+            # Wait for 0.5 second
+            time.sleep(0.5)
 
     except KeyboardInterrupt:
         # Handle KeyboardInterrupt (Ctrl+C) gracefully
