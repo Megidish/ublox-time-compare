@@ -15,9 +15,9 @@ For mac users enter to the terminal :
 ```
 Now go inside ublox_request_function.py and change u_blox_path to the output from earlier 
 ```python
-Insted of thi: 
+# Insted of this: 
 u_blox_path = '/dev/tty.usbmodem112401'
-Enter the new USB port
+# Enter the new USB port
 u_blox_path = '/dev/enter here new path'
 ```
 
@@ -37,7 +37,7 @@ with webdriver.Chrome() as driver:
             web_timestamp = parsing_timestamp(clock_element)
             sync_precision = parsing_sync_precision(clock_stats_element)
             time.sleep(0.5)
-# allows for graceful termination of the script when u enter command + C
+# Allows for graceful termination of the script when u enter command + C
     except KeyboardInterrupt:
         pass
 ```
