@@ -4,7 +4,7 @@ import serial
 from pyubx2 import UBXReader
 baudrate = 9600
 
-serial_port = serial.Serial('/dev/tty.usbmodem112301',baudrate, timeout =1)
+serial_port = serial.Serial('/dev/tty.usbmodem112401',baudrate, timeout =1)
 serial_port.isOpen()
 raw_data = open('data.txt', 'w')
 
