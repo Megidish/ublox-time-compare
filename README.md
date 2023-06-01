@@ -9,7 +9,7 @@ pip install -r requirements.txt
 ```
 
 # How to check which USB port are conncected to U-blox 
-For mac users:
+For mac users enter to the terminal :
 ```bash
 /dev && ls | grep tty.usbmodem
 ```
@@ -37,7 +37,7 @@ with webdriver.Chrome() as driver:
             web_timestamp = parsing_timestamp(clock_element)
             sync_precision = parsing_sync_precision(clock_stats_element)
             time.sleep(0.5)
-
+# allows for graceful termination of the script when u enter command + C
     except KeyboardInterrupt:
         pass
 ```
