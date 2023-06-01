@@ -3,5 +3,5 @@ This code help u get info from a U-blox with python and to scrape code from a ti
 
 
 
-#How to check which port you are conncecting to U-blox for MAC users
-cd /dev && ls | grep tty.usbmodem
+# How to check which port you are conncecting to U-blox for MAC users
+enter this command: cd /dev && ls | grep tty.usbmodem
