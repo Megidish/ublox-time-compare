@@ -9,14 +9,14 @@ from sklearn.metrics import mean_squared_error, r2_score
 data = pd.read_csv('test.csv')
 
 # Extract the features and target variable
-X = data[['GPS Time', 'clock.zone Time']]  # Replace with actual feature column names
-y = data['Drift']  # Replace with the column name for the target variable
+X = data[['GPS Time', 'clock.zone Time']] 
+y = data['Drift']  
 
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Create and train the KNN regressor
-knn = KNeighborsRegressor(n_neighbors=10)  # Adjust the number of neighbors (k) as desired
+knn = KNeighborsRegressor(n_neighbors=1)   
 knn.fit(X_train, y_train)
 
 # Predict the target variable for the test set

@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from write_to_csv import write_to_csv,remove_file
-from ublox_request_functions import get_timestamp_from_UBLOX
+from ublox_request_functions import get_all_ublox_data
 
 website_URL = 'https://clock.zone/asia/tel-aviv-yafo'
 
@@ -40,9 +40,9 @@ with webdriver.Chrome() as driver:
         while True:
             current_time = datetime.now()
             web_timestamp = parsing_timestamp(clock_element)
-            ublox_timestamp = get_timestamp_from_UBLOX()
+            ublox_timestamp,ublox_fix_quality,number_of_sat = get_all_ublox_data()
             sync_precision = parsing_sync_precision(clock_stats_element)
-            write_to_csv("test.csv", current_time, ublox_timestamp, web_timestamp,sync_precision)
+            write_to_csv("test.csv", current_time, ublox_timestamp, web_timestamp,sync_precision,ublox_fix_quality,number_of_sat)
             time.sleep(0.5)
 
     except KeyboardInterrupt:
