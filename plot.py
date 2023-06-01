@@ -6,8 +6,8 @@ data = pd.read_csv('test.csv')
 
 # Extract the columns
 current_time = data['Current Time'].astype('datetime64[ns]')
-gps_time = data['GPS Time'].astype('int64')
-clock_zone_time = data['clock.zone Time'].astype('int64')
+gps_time = data['GPS Time'].astype(float)
+clock_zone_time = data['clock.zone Time'].astype(float)
 
 
 # Create the line chart

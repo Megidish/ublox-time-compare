@@ -5,7 +5,7 @@ def remove_file(file_path):
     if os.path.exists(file_path):
         os.remove(file_path)
   
-def write_to_csv(file_path, current_time_value, GPS_time_value, clock_zone_value,sync_precision):
+def write_to_csv(file_path, current_time_value, GPS_time_value, clock_zone_value,sync_precision,ublox_fix_quality,number_of_sat):
     # Check if the file already exists
     file_exists = os.path.isfile(file_path)
     
@@ -18,10 +18,10 @@ def write_to_csv(file_path, current_time_value, GPS_time_value, clock_zone_value
        
         # Write the header row only if the file doesn't exist
         if not file_exists:
-            writer.writerow(['Current Time', 'GPS Time', 'clock.zone Time','Drift','clock.zone Sync Precision'])
+            writer.writerow(['Current Time', 'GPS Time', 'clock.zone Time','Drift','clock.zone Sync Precision','Fix Quality', 'Number of SAT'])
         
         # Write the data row
-        writer.writerow([current_time_value, GPS_time_value, clock_zone_value, drift,sync_precision])
+        writer.writerow([current_time_value, GPS_time_value, clock_zone_value, drift,sync_precision,ublox_fix_quality,number_of_sat])
         
         print(f"Data appended to '{file_path}' successfully in time '{current_time_value}' ")
  

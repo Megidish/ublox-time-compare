@@ -38,7 +38,7 @@ def get_timestamp_from_UBLOX():
 def get_sat_number_from_UBLOX():
     baudrate = 9600
 
-    serial_port = serial.Serial('/dev/tty.usbmodem112301',baudrate, timeout =1)
+    serial_port = serial.Serial('/dev/tty.usbmodem112401',baudrate, timeout =1)
     serial_port.isOpen()
     raw_data = open('data.txt', 'w')
 
@@ -85,3 +85,29 @@ def get_sat_number_from_UBLOX():
 
     file.close()
     print(f"timer expired 1 minutes have passed ")
+
+def get_all_ublox_data():
+    baudrate = 9600
+    serial_port = serial.Serial("/dev/tty.usbmodem112401", baudrate, timeout=1)
+    serial_port.isOpen()
+
+    output=''
+    for i in range(3):
+        ubr = serial_port.readline().decode().strip()
+        output+= ubr + '\n'
+
+
+    timestamp  = None
+    number_of_sat  = None
+    fix_quality  = None
+
+    for line in output.splitlines():
+        splited_line = line.split(',')
+        if splited_line[0] == '$GNRMC':
+            timestamp = splited_line[1]
+        if splited_line[0] == '$GNGGA':
+            number_of_sat  = splited_line[7]
+            fix_quality  =  splited_line[6]
+
+    return parse_to_UNIX(timestamp) ,fix_quality,number_of_sat
+
