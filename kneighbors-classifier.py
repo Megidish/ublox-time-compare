@@ -1,45 +1,39 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.neighbors import KNeighborsClassifier
+import numpy as np
+from sklearn.neighbors import KNeighborsRegressor
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import mean_squared_error, r2_score
 
-# Load data from CSV file
+# Load the data from the CSV file
 data = pd.read_csv('test.csv')
 
-# Extract features and labels
-X = data['Drift'].values.reshape(-1, 1)
-y = data['Current Time'].values.reshape(-1, 1)
+# Extract the features and target variable
+X = data[['GPS Time', 'clock.zone Time']]  # Replace with actual feature column names
+y = data['Drift']  # Replace with the column name for the target variable
 
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Reshape y_train and y_test
-y_train = y_train.ravel()
-y_test = y_test.ravel()
-
-# Create and train the K-Nearest Neighbors classifier
-knn = KNeighborsClassifier()
+# Create and train the KNN regressor
+knn = KNeighborsRegressor(n_neighbors=10)  # Adjust the number of neighbors (k) as desired
 knn.fit(X_train, y_train)
 
-# Predict the labels for the test set
+# Predict the target variable for the test set
 y_pred = knn.predict(X_test)
 
-# Calculate the accuracy of the classifier
-accuracy = accuracy_score(y_test, y_pred)
-print("Accuracy:", accuracy)
+# Evaluate the performance of the model
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+print("Mean Squared Error:", mse)
+print("R2 Score:", r2)
 
-# Plotting the data and decision boundary
-x_boundary = np.linspace(np.min(X), np.max(X), 100).reshape(-1, 1)
-y_boundary = knn.predict(x_boundary)
+# Create a scatter plot of the data
+plt.scatter(X_test['GPS Time'], y_test, label='Actual Drift')
+plt.scatter(X_test['GPS Time'], y_pred, label='Predicted Drift')
 
-plt.scatter(X_train, y_train, color='blue', label='Training Data')
-plt.scatter(X_test, y_test, color='green', label='Test Data')
-plt.plot(x_boundary, y_boundary, color='red', label='Decision Boundary')
-
-plt.xlabel('Drift')
-plt.ylabel('Timestamp')
-plt.title('K-Nearest Neighbors Classification')
+plt.xlabel('GPS Time')
+plt.ylabel('Drift')
+plt.title('Actual Drift vs. Predicted Drift')
 plt.legend()
 plt.show()
