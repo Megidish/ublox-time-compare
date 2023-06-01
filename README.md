@@ -10,9 +10,9 @@ pip install -r requirements.txt
 # How to check which USB port are conncected to U-blox 
 For mac users:
 ```bash
-d /dev && ls | grep tty.usbmodem
+/dev && ls | grep tty.usbmodem
 ```
 now go inside ublox_request_function.py and change u_blox_path to the output from eaarlier 
 ```python
-u_blox_path = '/dev/the new path'
+u_blox_path = '/dev/enter here new path'
 ```
