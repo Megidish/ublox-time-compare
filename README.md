@@ -65,3 +65,10 @@ def get_timestamp_from_UBLOX():
     output = parse_data_to_timestamp(str(msg))  
     return output
  ```
+ 
+ # Mechine learning method 
+The machine learning method used in our code is K-Nearest Neighbors (KNN) regression.
+In this case, it is applied for regression to predict the "Drift" variable based on the features "GPS Time" and "clock.zone Time". 
+To evaluate the performance of the model, the mean squared error (MSE) and R-squared score (R2) are calculated. MSE measures the average squared difference between the predicted and actual values, with lower values indicating better performance. R2 score measures the proportion of variance in the target variable explained by the model, with higher values indicating a better fit.
+
+# Plot example for using KNN regression
