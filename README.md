@@ -22,6 +22,7 @@ u_blox_path = '/dev/enter here new path'
 ```
 
 # Scraping data from website with selenium
+this function is taken from main.py
 ```python
 # Initializes a WebDriver instance with statement ensures that resources are properly released after execution
 with webdriver.Chrome() as driver:
