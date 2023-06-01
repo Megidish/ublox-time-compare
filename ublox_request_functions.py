@@ -4,6 +4,8 @@ import serial
 from pyubx2 import UBXReader
 import pynmea2
 
+u_blox_path = '/dev/tty.usbmodem112401'
+
 def parse_data_to_timestamp (sentence):
     fields = sentence.split(",")
     if fields[0] == "$GNRMC":
@@ -19,7 +21,7 @@ def parse_to_UNIX (timestamp):
 
 def get_timestamp_from_UBLOX():
     baudrate = 9600
-    serial_port = serial.Serial('/dev/tty.usbmodem112401', baudrate, timeout=1)
+    serial_port = serial.Serial(u_blox_path, baudrate, timeout=1)
 
     reader = UBXReader(serial_port)
     data = serial_port.readline().decode().strip()
@@ -38,7 +40,7 @@ def get_timestamp_from_UBLOX():
 def get_sat_number_from_UBLOX():
     baudrate = 9600
 
-    serial_port = serial.Serial('/dev/tty.usbmodem112401',baudrate, timeout =1)
+    serial_port = serial.Serial(u_blox_path,baudrate, timeout =1)
     serial_port.isOpen()
     raw_data = open('data.txt', 'w')
 
@@ -88,7 +90,7 @@ def get_sat_number_from_UBLOX():
 
 def get_all_ublox_data():
     baudrate = 9600
-    serial_port = serial.Serial("/dev/tty.usbmodem112401", baudrate, timeout=1)
+    serial_port = serial.Serial(u_blox_path, baudrate, timeout=1)
     serial_port.isOpen()
 
     output=''
