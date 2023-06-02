@@ -2,7 +2,7 @@
 # About the project
 The project's purpose is to perform classification on a U-blox sensor to determine whether it is functioning correctly or faulty by subtracting its own timestamp tag from the timestamp tag of a time server.
 
-# To install
+# Usage
 Install packages listed in a requirements.txt file using pip, you can use the following command:
 ```bash
 pip install -r requirements.txt
