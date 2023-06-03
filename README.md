@@ -2,6 +2,10 @@
 # About the project
 The project's purpose is to perform classification on a U-blox sensor to determine whether it is functioning correctly or faulty by subtracting its own timestamp tag from the timestamp tag of a time server.
 
+# What U-blox is ?
+u-blox 9 is a series of high-performance GNSS (Global Navigation Satellite System) modules developed by u-blox, offering precise positioning and navigation capabilities for various applications.
+you can obtain accurate position, velocity, and time (PVT) data, including latitude, longitude, altitude, heading, speed, and precise timing information. These modules provide access to satellite signals from multiple GNSS constellations such as GPS, GLONASS, Galileo, BeiDou, and QZSS, enabling robust and reliable positioning information.
+
 # Usage
 Install packages listed in a requirements.txt file using pip, you can use the following command:
 ```bash
