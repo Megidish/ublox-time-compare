@@ -76,4 +76,9 @@ The machine learning method used in our code is K-Nearest Neighbors (KNN) regres
 In this case, it is applied for regression to predict the "Drift" variable based on the features "GPS Time" and "clock.zone Time". 
 To evaluate the performance of the model, the mean squared error (MSE) and R-squared score (R2) are calculated. MSE measures the average squared difference between the predicted and actual values, with lower values indicating better performance. R2 score measures the proportion of variance in the target variable explained by the model, with higher values indicating a better fit.
 
-# Plot example for using KNN regression
+# Output Plots
+
+
+![Screen Shot 2023-06-16 at 13 51 57](https://github.com/Megidish/ublox-time-compare/assets/105859276/7cc87772-fa4b-4115-8917-7cc63b524439)
+
+
