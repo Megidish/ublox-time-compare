@@ -12,11 +12,12 @@ website_URL = 'https://clock.zone/asia/tel-aviv-yafo'
 
 def parsing_timestamp(clock_element):
     year_month_day = datetime.now().strftime("%Y-%m-%d")
-    clock_text = clock_element.text.replace('PM', '').replace(':', ':').replace('\n', '')
+    clock_text = clock_element.text.replace('PM', '').replace('AM', '').replace(':', ':').replace('\n', '')
     clock_output = f"{year_month_day} {clock_text}"
     time_obj = datetime.strptime(clock_output, "%Y-%m-%d %H:%M:%S:%f")
     timestamp = time_obj.timestamp()
     return timestamp
+
 
 def parsing_sync_precision(clock_stats_element):
     stats_text = clock_stats_element.text
