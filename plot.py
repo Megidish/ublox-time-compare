@@ -5,7 +5,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 
 # Load the data from the CSV file
+
 data = pd.read_csv('updated_file.csv')
+
 
 # Extract the features and target variable
 X = data[['GPS Time', 'clock.zone Time']]

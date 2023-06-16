@@ -1,10 +1,11 @@
+import filecmp
 import time
 import datetime
 import serial
 from pyubx2 import UBXReader
 import pynmea2
 
-u_blox_path = '/dev/tty.usbmodem112401'
+u_blox_path = '/dev/tty.usbmodem1201'
 
 def parse_data_to_timestamp (sentence):
     fields = sentence.split(",")
@@ -85,7 +86,7 @@ def get_sat_number_from_UBLOX():
 
     print("timer expired for 1 minutes")
 
-    file.close()
+    filecmp.close()
     print(f"timer expired 1 minutes have passed ")
 
 def get_all_ublox_data():
