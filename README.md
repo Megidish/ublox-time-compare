@@ -77,7 +77,13 @@ In this case, it is applied for regression to predict the "Drift" variable based
 To evaluate the performance of the model, the mean squared error (MSE) and R-squared score (R2) are calculated. MSE measures the average squared difference between the predicted and actual values, with lower values indicating better performance. R2 score measures the proportion of variance in the target variable explained by the model, with higher values indicating a better fit.
 
 # Output Plots
+The first plot predict the "Drift" variable using the features "GPS Time" and "clock.zone Time". It splits the data into training and testing sets, predicts the target variable for the test set, and evaluates the model's performance using mean squared error (MSE) and R2 score.
 
+The second plot is the time comparison between the "Current Time" and "Drift" variables, The x-axis represents the "Current Time" values.
+
+The third plot visualizes the dependencies between the time drift and number of satellites and sync precision.
+Number of satellites- effect the GPS timesatmp accuracy the more satellites u have it will be bettter
+Sync precision -  refers to the precision with which the website can synchronize its clock with a reference time source
 
 ![Screen Shot 2023-06-16 at 13 51 57](https://github.com/Megidish/ublox-time-compare/assets/105859276/7cc87772-fa4b-4115-8917-7cc63b524439)
 
