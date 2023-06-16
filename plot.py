@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 
 # Load the data from the CSV file
-data = pd.read_csv('test.csv')
+data = pd.read_csv('updated_file.csv')
 
 # Extract the features and target variable
 X = data[['GPS Time', 'clock.zone Time']]
@@ -55,7 +55,7 @@ ax3.scatter(current_time, num_sat, label='Number of SAT')
 ax3.scatter(current_time, sync_precision, label='Sync Precision')
 ax3.set_xlabel('Current Time')
 ax3.set_ylabel('Value')
-ax3.set_title('Scatter Plot')
+ax3.set_title('Data dependencies ')
 ax3.legend()
 
 # Adjust the spacing between subplots
